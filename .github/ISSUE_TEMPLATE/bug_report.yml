@@ -23,7 +23,7 @@ body:
     id: where
     attributes:
       label: أين ظهرت؟ / Where does it appear?
-      description: المنطقة أو الشاشة، وماذا فعلتَ قبلها (مثلاً: التقطتُ Morph Ball في Brinstar).
+      description: "المنطقة أو الشاشة، وماذا فعلتَ قبلها (مثلاً التقطتُ Morph Ball في Brinstar)."
     validations:
       required: true
   - type: textarea

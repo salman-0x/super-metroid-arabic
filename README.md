@@ -1,4 +1,6 @@
-# تعريب Super Metroid إلى العربية · Super Metroid Arabic Translation
+# Super Metroid Arabic Translation
+
+## تعريب Super Metroid إلى العربية
 
 [العربية](#العربية) · [English](#english)
 

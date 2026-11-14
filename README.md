@@ -69,6 +69,9 @@
 - بعض الكلمات اختصار اضطراراً لضيق الخانات (مثل "سلاح" لـ BEAM و"درع" لـ SUIT).
 - **الترجمات بحاجة لمراجعة** (انظر أدناه).
 
+### الإبلاغ عن مشكلة
+وجدت نصاً بالإنجليزية أو حرفاً مشوّهاً أو خطأً في الترجمة؟ افتح [Issue جديداً](../../issues/new/choose) واملأ النموذج: مكان الظهور، لقطة شاشة، والمحاكي. **لا ترفق ملف اللعبة أبداً.**
+
 ### ساهم في المراجعة
 كل النصوص العربية مع أصلها الإنجليزي في [docs/TRANSLATION_REVIEW.md](docs/TRANSLATION_REVIEW.md) ونسخة جدول [docs/translations_review.csv](docs/translations_review.csv). اكتب تصحيحك وافتح Issue أو Pull Request على `data/translations_ar.json`.
 
@@ -114,6 +117,9 @@ In **Mesen 2** only (scripted runs and screenshot checks). Not tested on real ha
 
 ### Known limitations
 Dense, rough small fonts · menu cursor stays on the left · two of the five OPTION MODE screens (the ones with Japanese titles) were verified from data only, not seen in the emulator · item-pickup boxes were verified through the game's own routine and memory checks, not by picking up an item in real play (a short real-play walk in the first Ceres room showed no corruption) · some words are abbreviated to fit · **the translations need review**: see [docs/TRANSLATION_REVIEW.md](docs/TRANSLATION_REVIEW.md) / [csv](docs/translations_review.csv) and send corrections as an Issue or a PR on `data/translations_ar.json`.
+
+### Reporting a problem
+Found untranslated text, a garbled glyph or a wrong translation? [Open an issue](../../issues/new/choose) and fill in the form: where it appears, a screenshot, and your emulator. **Never attach the game file.**
 
 ### Building / tests
 See the commands in the Arabic section above (`extract`, `build-ar`, `smar/bps.py`, `unittest`). Technical notes: [docs/TECHNICAL_NOTES.md](docs/TECHNICAL_NOTES.md).

@@ -1,0 +1,50 @@
+name: مشكلة في التعريب / Translation problem
+description: نص غير معرَّب، حرف مشوّه، أو ترجمة خاطئة / Untranslated text, garbled glyph or wrong translation
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **لا ترفق ملف اللعبة (ROM) ولا روابط تحميله. / Never attach the game file (ROM) or links to it.**
+        لقطة الشاشة تكفي. / A screenshot is enough.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: نوع المشكلة / Kind
+      options:
+        - نص بقي بالإنجليزية / Text still in English
+        - حرف أو كلمة مشوّهة / Garbled glyph or word
+        - ترجمة خاطئة أو غير مناسبة / Wrong or poor translation
+        - اللعبة تتجمد أو تتصرف بشكل غريب / Freeze or odd behaviour
+        - أخرى / Other
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: أين ظهرت؟ / Where does it appear?
+      description: المنطقة أو الشاشة، وماذا فعلتَ قبلها (مثلاً: التقطتُ Morph Ball في Brinstar).
+    validations:
+      required: true
+  - type: textarea
+    id: shot
+    attributes:
+      label: لقطة شاشة / Screenshot
+      description: اسحب الصورة إلى هنا. / Drag the image here.
+  - type: textarea
+    id: fix
+    attributes:
+      label: اقتراح الترجمة الصحيحة (اختياري) / Suggested correction (optional)
+  - type: input
+    id: emulator
+    attributes:
+      label: المحاكي ونسخته / Emulator and version
+      description: اختُبر التعريب في Mesen 2 فقط. / Only tested in Mesen 2.
+      placeholder: Mesen 2, snes9x, ...
+    validations:
+      required: true
+  - type: input
+    id: sha1
+    attributes:
+      label: SHA-1 للملف المعرَّب / SHA-1 of the patched file (optional)
+      description: المتوقع / expected 18181a8d771f1f9ac6baaaf9dcc3f8344cbe142d

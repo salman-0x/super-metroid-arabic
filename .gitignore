@@ -1,0 +1,9 @@
+﻿*.sfc
+*.smc
+*.srm
+*.zip
+build/
+base/
+analysis/
+__pycache__/
+data/messages.json

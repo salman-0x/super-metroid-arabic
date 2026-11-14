@@ -1,0 +1,3 @@
+ec64520d534eeac34d68c539125b57a80ba05912  SuperMetroid_Arabic.bps
+source ROM (Super Metroid (Japan, USA) (En,Ja), headerless): da957f0d63d14cb441d215462904c4fa8519c613
+patched ROM result: 18181a8d771f1f9ac6baaaf9dcc3f8344cbe142d

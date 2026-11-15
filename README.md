@@ -6,6 +6,9 @@
 
 **صانع التعريب · Translation by: Mr S**
 
+> **نسخة تجريبية · Beta.** لم تُختبر بلعب كامل حتى النهاية بعد، وقد توجد نصوص بالإنجليزية أو أخطاء لم تظهر. نحتاج من يختمها ويبلّغ عبر [Issue](../../issues/new/choose).
+> **Beta.** Not yet tested by a full playthrough: untranslated text or mistakes may remain. If you finish the game, please [report problems](../../issues/new/choose).
+
 ![intro](screenshots/01_intro_pages.png)
 
 ---

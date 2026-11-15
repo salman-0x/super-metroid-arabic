@@ -3,7 +3,7 @@
 كل النصوص العربية في التعريب مع أصلها الإنجليزي. اكتب تصحيحك بجانب أي سطر وأرسله (أو افتح Issue).
 Every Arabic text of the patch next to its English original. Add your correction next to any line.
 
-عدد النصوص / entries: **149**
+عدد النصوص / entries: **154**
 
 ## رسائل الصناديق / Message boxes
 
@@ -189,6 +189,16 @@ Every Arabic text of the patch next to its English original. Add your correction
 | item_hijump | HI-JUMP BOOTS | حذاء القفز |  |
 | item_space | SPACE JUMP | قفز فضائي |  |
 | item_speed | SPEED BOOSTER | معزز السرعة |  |
+| reserve_label | MODE (reserve box label) | وضع |  |
+| reserve_auto | AUTO (reserve mode value) | آلي |  |
+| reserve_manual | MANUAL (reserve mode value) | يدوي |  |
+| reserve_tank | RESERVE TANK | خزان احتياطي |  |
+
+## شاشة الكوكب عند التحميل / Load map screen
+
+| where | English | العربية | note |
+|---|---|---|---|
+| title | PLANET ZEBES | كوكب زيبيس |  |
 
 ## الواجهة / HUD
 

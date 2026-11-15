@@ -673,6 +673,9 @@
       "تنعم بالسلام..."
     ]
   },
+  "_planet": {
+    "title": "كوكب زيبيس"
+  },
   "_pause": {
     "title": "ساموس",
     "supply": "إمداد",
@@ -698,7 +701,11 @@
     "item_plasma": "بلازما",
     "item_hijump": "حذاء القفز",
     "item_space": "قفز فضائي",
-    "item_speed": "معزز السرعة"
+    "item_speed": "معزز السرعة",
+    "reserve_label": "وضع",
+    "reserve_auto": "آلي",
+    "reserve_manual": "يدوي",
+    "reserve_tank": "خزان احتياطي"
   },
   "_hud": {
     "energy": "طاقة",

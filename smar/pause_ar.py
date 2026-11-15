@@ -132,6 +132,44 @@ def render_strip(name, text):
     return [M._encode4([row[8 * i:8 * i + 8] for row in grid]) for i in range(len(tiles))]
 
 
+# Reserve-tank box of the equipment screen ("MODE [AUTO]" / "RESERVE TANK", BG1 rows 10-11, tiles used nowhere else).  The mode value
+# swaps between the AUTO tiles ($156-$159) and the MANUAL tiles ($146-$149), so both are translated.  Each entry: the tiles, the pixel
+# columns the text may use (the bracket pixels outside stay), ink/background colours, and how the word sits in that area.
+TEXTS = {
+    "reserve_label": dict(tiles=[0x119, 0x11A, 0x11B], x=(0, 23), ink=14, align="right", sha="8e38e2ecc7bf"),
+    "reserve_auto": dict(tiles=[0x156, 0x157, 0x158, 0x159], x=(2, 29), ink=1, align="center", sha="4847ca78c108"),
+    "reserve_manual": dict(tiles=[0x146, 0x147, 0x148, 0x149], x=(2, 29), ink=1, align="center", sha="c1765d5c8a5b"),
+    "reserve_tank": dict(tiles=list(range(0x80, 0x87)), x=(0, 55), ink=13, align="right", sha="4fc4eeeb49b7"),
+}
+
+
+def render_text(name, text, rom):
+    """-> {tile id: 32 bytes}: the tiles with the text area cleared and the Arabic word (condensed font, 6 rows) drawn in it."""
+    b = TEXTS[name]
+    ids = b["tiles"]
+    grid = [[0] * (8 * len(ids)) for _ in range(8)]
+    for k, t in enumerate(ids):
+        px = _decode4(rom.read(_tile_at(t), 32))
+        for y in range(8):
+            for x in range(8):
+                grid[y][8 * k + x] = px[y][x]
+    x0, x1 = b["x"]
+    word = pack_ar.pack(text, gap=1, micro=True)[:6]
+    w = len(word[0])
+    if w > x1 - x0 + 1:
+        raise RomError(f"reserve text {name!r}: {text!r} needs {w}px but the area has {x1 - x0 + 1}px")
+    for y in range(8):
+        for x in range(x0, x1 + 1):
+            grid[y][x] = BG
+    left = x1 - w if b["align"] == "right" else x0 + (x1 - x0 + 1 - w) // 2
+    left = max(left, x0)                                        # right-aligned with a 1 px margin when it fits
+    for y in range(6):
+        for x in range(w):
+            if word[y][x] == "#":
+                grid[1 + y][left + x] = b["ink"]
+    return {t: M._encode4([row[8 * k:8 * k + 8] for row in grid]) for k, t in enumerate(ids)}
+
+
 def build(rom, spec):
     """spec: {"title": "...", "supply": "...", ...}; overwrites the tile pixels in place."""
     for name, (tiles, sha) in LABELS.items():
@@ -146,9 +184,16 @@ def build(rom, spec):
         raw = b"".join(rom.read(_tile_at(t), 32) for t in tiles)
         if hashlib.sha1(raw).hexdigest()[:12] != sha:
             raise RomError(f"pause item name {name!r}: the tiles at $B6:8000 are not the original English art")
+    for name, b in TEXTS.items():
+        raw = b"".join(rom.read(_tile_at(t), 32) for t in b["tiles"])
+        if hashlib.sha1(raw).hexdigest()[:12] != b["sha"]:
+            raise RomError(f"reserve box {name!r}: the tiles at $B6:8000 are not the original English art")
     out = {}
     for name, text in spec.items():
-        if name.startswith("item_"):
+        if name in TEXTS:
+            for t, data in render_text(name, text, rom).items():
+                rom.write(_tile_at(t), data)
+        elif name.startswith("item_"):
             key = name[5:]
             if key not in STRIPS:
                 raise RomError(f"unknown pause item {name!r}")
@@ -169,7 +214,7 @@ def build(rom, spec):
 def changed_regions(info):
     """(start, end) file ranges build() may write, adjacent tiles merged (a diff of two neighbouring tiles is one range)."""
     out = []
-    for t in sorted({t for n in info["labels"] for t in (STRIPS[n[5:]][0] if n.startswith("item_") else BOXES[n]["tiles"] if n in BOXES else LABELS[n][0])}):
+    for t in sorted({t for n in info["labels"] for t in (TEXTS[n]["tiles"] if n in TEXTS else STRIPS[n[5:]][0] if n.startswith("item_") else BOXES[n]["tiles"] if n in BOXES else LABELS[n][0])}):
         if out and out[-1][1] == _tile_at(t):
             out[-1] = (out[-1][0], _tile_at(t) + 32)
         else:

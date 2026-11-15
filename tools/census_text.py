@@ -66,11 +66,14 @@ title = 0               # logo + lines seen/known; the title screen was not capt
 ending = 0   # the ending story lines (sprites) are excluded by the user, like the credits and the title screen
 items = letters("VARIA SUIT", "GRAVITY SUIT", "MORPHING BALL", "BOMB", "SPRING BALL", "SCREW ATTACK", "CHARGE", "ICE", "WAVE", "SPAZER",
                 "PLASMA", "HI-JUMP BOOTS", "SPACE JUMP", "SPEED BOOSTER")   # equipment-screen item names (14 strips of tiles)
+reserve = letters("MODE", "AUTO", "RESERVE", "TANK")              # equipment screen reserve-tank box (the MANUAL value is the same slot)
+planet = letters("PLANET", "ZEBES")                                # title of the save-load map screen (found with the all-items save test)
 graphics = [("pause: equipment item names", items), ("HUD (energy etc.)", HUD), ("pause: map screen", pause_map), ("pause: equipment screen", pause_equip),
+            ("pause: reserve-tank box", reserve), ("load map screen title", planet),
             ]
 
 # graphics text translated by editing tile art in place (smar/pause_ar.py): the six equipment-screen labels
-DONE_GFX = {"HUD (energy etc.)": HUD, "pause: equipment item names": items,
+DONE_GFX = {"HUD (energy etc.)": HUD, "pause: equipment item names": items, "pause: reserve-tank box": reserve, "load map screen title": planet,
             "pause: equipment screen": letters("SUPPLY", "BEAM", "SUIT", "MISC", "BOOTS", "SAMUS", "MAP", "EXIT"),
             "pause: map screen": letters(*AREAS, "EXIT", "START", "SAMUS")}     # L and R are the names of the physical shoulder buttons: kept
 done = sum(r[2] for r in rows) + sum(DONE_GFX.values())

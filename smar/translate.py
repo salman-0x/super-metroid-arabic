@@ -259,7 +259,11 @@ def build_arabic(rom: Rom, doc: dict, translations: dict, relocate: bool = False
     if "_hud" in translations:
         from . import hud_ar
         hud = hud_ar.build(rom, translations["_hud"])
+    planet = None
+    if "_planet" in translations:
+        from . import planet_ar
+        planet = planet_ar.build(rom, translations["_planet"])
     from . import credit_ar
     credit = credit_ar.build(rom)
     chk = rom.fix_checksum()
-    return {"font_tiles": len(table), "info": info, "checksum": chk, "doc": tdoc, "menus": menus, "intro": intro, "pause": pause, "hud": hud, "areas": areas, "credit": credit}
+    return {"font_tiles": len(table), "info": info, "checksum": chk, "doc": tdoc, "menus": menus, "intro": intro, "pause": pause, "hud": hud, "areas": areas, "planet": planet, "credit": credit}

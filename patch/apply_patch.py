@@ -5,7 +5,7 @@ import sys
 import zlib
 
 SOURCE_SHA1 = "da957f0d63d14cb441d215462904c4fa8519c613"      # Super Metroid (Japan, USA) (En,Ja), headerless
-RESULT_SHA1 = "18181a8d771f1f9ac6baaaf9dcc3f8344cbe142d"
+RESULT_SHA1 = "27758c9ce3075411f10c34b1bb9a72f6145dc812"
 
 
 def _dec(data, i):

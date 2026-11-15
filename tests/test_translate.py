@@ -278,6 +278,9 @@ class TestBuildArabic(unittest.TestCase):
         if res.get("areas"):
             from smar import area_ar
             allowed += area_ar.changed_regions(res["areas"])
+        if res.get("planet"):
+            from smar import planet_ar
+            allowed += planet_ar.changed_regions(res["planet"])
         if res.get("credit"):
             from smar import credit_ar
             allowed += credit_ar.changed_regions(res["credit"])

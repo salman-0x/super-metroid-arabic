@@ -20,12 +20,13 @@
 - شاشات OPTION MODE الخمس
 - قصة المقدمة كاملة (7 صفحات)
 - شاشة GAME OVER
-- شاشة التوقف: التسميات وأسماء العناصر الـ14 وأزرار الخريطة (START/EXIT/MAP/SAMUS) وأسماء المناطق السبعة
+- شاشة التوقف: التسميات وأسماء العناصر الـ14 وأزرار الخريطة (START/EXIT/MAP/SAMUS) وأسماء المناطق السبعة وصندوق الخزان الاحتياطي (الوضع آلي/يدوي)
+- عنوان شاشة الخريطة التي تظهر عند تحميل ملف محفوظ (كوكب زيبيس)
 - الواجهة أثناء اللعب (طاقة · آلي)
 
 ### ما لم يُعرَّب (عمداً)
 شعار شاشة العنوان · سطور النهاية الأربعة (مرسومة بسبرايتات) · أسماء المطورين في الكريديت · حرفا **L** و**R** (اسما زرّي الكتف) · نص الوضع الياباني.
-بحسب جردي، المُعرَّب **99.5٪ من حجم النص المحصور** (1967 من 1976 حرفاً) مع استبعاد البنود أعلاه. هذا رقم عن ما عددتُه فقط، وقد توجد نصوص لم أصل إليها.
+بحسب جردي، المُعرَّب **99.6٪ من حجم النص المحصور** (1997 من 2006 أحرف) مع استبعاد البنود أعلاه. هذا رقم عن ما عددتُه فقط، وقد توجد نصوص لم أصل إليها.
 
 ### المتطلبات
 نسخة **الأصل غير المعدّلة** من اللعبة، **بدون ترويسة (header)**:
@@ -45,7 +46,7 @@
    ```bash
    python patch/apply_patch.py "Super Metroid (Japan, USA) (En,Ja).sfc" patch/SuperMetroid_Arabic.bps "Super Metroid Arabic.sfc"
    ```
-   النتيجة الصحيحة: SHA-1 `18181a8d771f1f9ac6baaaf9dcc3f8344cbe142d`، والمجموع الاختباري للـ SNES صالح.
+   النتيجة الصحيحة: SHA-1 `27758c9ce3075411f10c34b1bb9a72f6145dc812`، والمجموع الاختباري للـ SNES صالح.
 
 إن كانت نسختك بترويسة نسخ (512 بايت زائدة) أزلها أولاً.
 
@@ -66,6 +67,7 @@
 - مؤشر الاختيار في القوائم بقي على اليسار كما في الأصل.
 - من شاشات OPTION MODE الخمس، شاشتان (فيهما العناوين اليابانية) تحققتُ منهما من البيانات فقط ولم أرَهما في المحاكي.
 - رسائل جمع العناصر فُحصت عبر روتين اللعبة نفسه وتحقق من الذاكرة، ولم أجرّب التقاط عنصر في لعب حقيقي. جولة لعب قصيرة في غرفة Ceres الأولى لم تُظهر أي تشويه.
+- في صندوق الخزان الاحتياطي تقع كلمة "وضع" على يسار القيمة (آلي/يدوي)، كترتيب اللعبة الأصلي من اليسار لليمين.
 - بعض الكلمات اختصار اضطراراً لضيق الخانات (مثل "سلاح" لـ BEAM و"درع" لـ SUIT).
 - **الترجمات بحاجة لمراجعة** (انظر أدناه).
 
@@ -99,18 +101,18 @@ python -m unittest discover -s tests -p "test_*.py"
 An Arabic translation of **Super Metroid** (SNES) with right-to-left text and contextual letter shaping. The game is never redistributed: you apply a **BPS patch** (it refers to your copy instead of containing parts of it) to your own copy.
 
 ### What is translated
-Message boxes (item pickups, save…) and the yes/no prompts · the file-select screen with its copy/clear dialogs (including the Arabic file letter) · the five OPTION MODE screens · the whole intro story (7 pages) · GAME OVER · the pause screens (labels, the 14 item names, map buttons, the 7 area names) · the in-game HUD (energy, auto).
+Message boxes (item pickups, save…) and the yes/no prompts · the file-select screen with its copy/clear dialogs (including the Arabic file letter) · the five OPTION MODE screens · the whole intro story (7 pages) · GAME OVER · the pause screens (labels, the 14 item names, map buttons, the 7 area names, the reserve-tank box) · the title of the save-load map screen · the in-game HUD (energy, auto).
 
 ### Not translated (on purpose)
 Title-screen logo · the four ending story lines (they are sprites) · the staff credits · the shoulder-button letters **L/R** · the Japanese-language text mode.
-In my census **99.5 % of the counted text volume** (1967 of 1976 characters) is translated, excluding the items above. The census counts only what I found; there may be text I did not reach.
+In my census **99.6 % of the counted text volume** (1997 of 2006 characters) is translated, excluding the items above. The census counts only what I found; there may be text I did not reach.
 
 ### You need
 The **unmodified, headerless** dump: *Super Metroid (Japan, USA) (En,Ja)*, 3,145,728 bytes, SHA-1 `da957f0d63d14cb441d215462904c4fa8519c613`. No game file is in this repository.
 
 ### Applying
 - Any BPS patcher (Flips, MultiPatch, the browser-based RomPatcher.js…) with `patch/SuperMetroid_Arabic.bps`, or
-- `python patch/apply_patch.py <original.sfc> patch/SuperMetroid_Arabic.bps <output.sfc>` (checks source and result). Expected result SHA-1: `18181a8d771f1f9ac6baaaf9dcc3f8344cbe142d`.
+- `python patch/apply_patch.py <original.sfc> patch/SuperMetroid_Arabic.bps <output.sfc>` (checks source and result). Expected result SHA-1: `27758c9ce3075411f10c34b1bb9a72f6145dc812`.
 
 ### Tested
 In **Mesen 2** only (scripted runs and screenshot checks). Not tested on real hardware or other emulators. The save code and format are untouched; I did not test an old save file.

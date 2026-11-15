@@ -71,9 +71,13 @@ PAUSE_EN = {"title": "SAMUS (equipment title)", "supply": "SUPPLY", "beam": "BEA
             "item_varia": "VARIA (SUIT)", "item_suit": "(VARIA/GRAVITY) SUIT", "item_gravity": "GRAVITY (SUIT)", "item_morph": "MORPHING BALL",
             "item_bomb": "BOMB", "item_spring": "SPRING BALL", "item_screw": "SCREW ATTACK", "item_charge": "CHARGE", "item_ice": "ICE",
             "item_wave": "WAVE", "item_spazer": "SPAZER", "item_plasma": "PLASMA", "item_hijump": "HI-JUMP BOOTS",
-            "item_space": "SPACE JUMP", "item_speed": "SPEED BOOSTER"}
+            "item_space": "SPACE JUMP", "item_speed": "SPEED BOOSTER",
+            "reserve_label": "MODE (reserve box label)", "reserve_auto": "AUTO (reserve mode value)",
+            "reserve_manual": "MANUAL (reserve mode value)", "reserve_tank": "RESERVE TANK"}
 for k, v in TR["_pause"].items():
     add("شاشة التوقف / Pause screens", k, PAUSE_EN[k], v)
+for k, v in TR["_planet"].items():
+    add("شاشة الكوكب عند التحميل / Load map screen", k, "PLANET ZEBES", v)
 for k, v in TR["_hud"].items():
     add("الواجهة / HUD", k, k.upper(), v)
 for k, v in TR["_areas"].items():

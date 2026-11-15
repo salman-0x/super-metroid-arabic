@@ -225,6 +225,9 @@ class TestBuild(unittest.TestCase):
         if self.res.get("areas"):
             from smar import area_ar
             allowed += area_ar.changed_regions(self.res["areas"])
+        if self.res.get("planet"):
+            from smar import planet_ar
+            allowed += planet_ar.changed_regions(self.res["planet"])
         if self.res.get("credit"):
             from smar import credit_ar
             allowed += credit_ar.changed_regions(self.res["credit"])

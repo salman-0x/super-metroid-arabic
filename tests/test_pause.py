@@ -18,7 +18,7 @@ with open(os.path.join(ROOT, "data", "translations_ar.json"), encoding="utf-8") 
 class TestRender(unittest.TestCase):
     def test_every_label_fits_its_box(self):
         for name, text in SPEC.items():
-            if name in Z.BOXES or name.startswith("item_"):     # these need the ROM art: covered by TestBuild
+            if name in Z.BOXES or name in Z.TEXTS or name.startswith("item_"):     # these need the ROM art: covered by TestBuild
                 continue
             tiles = Z.render(name, text)
             self.assertEqual(len(tiles), len(Z.LABELS[name][0]))
@@ -70,6 +70,25 @@ class TestBuild(unittest.TestCase):
             if name.startswith("item_"):
                 tiles = Z.render_strip(name[5:], text)
                 self.assertEqual(len(tiles), len(Z.STRIPS[name[5:]][0]))
+
+    def test_reserve_box_texts_keep_the_brackets_and_other_tiles(self):
+        rom = Rom.load(ROM_PATH)
+        for name, b in Z.TEXTS.items():
+            text = SPEC[name]
+            new = Z.render_text(name, text, rom)
+            self.assertEqual(sorted(new), sorted(b["tiles"]))
+            x0, x1 = b["x"]
+            for k, t in enumerate(b["tiles"]):
+                old = Z._decode4(rom.read(Z._tile_at(t), 32))
+                cur = Z._decode4(new[t])
+                for y in range(8):
+                    for x in range(8):
+                        if not (x0 <= 8 * k + x <= x1):                 # the bracket pixels outside the text area stay
+                            self.assertEqual(old[y][x], cur[y][x])
+
+    def test_too_wide_a_reserve_text_is_refused(self):
+        with self.assertRaises(RomError):
+            Z.render_text("reserve_label", "خزان احتياطي كامل جدا", Rom.load(ROM_PATH))
 
     def test_too_long_an_item_name_is_refused(self):
         with self.assertRaises(RomError):

@@ -97,7 +97,7 @@ python -m unittest discover -s tests -p "test_*.py"
 
 ### الاعتمادات والترخيص
 التعريب والأدوات: **Mr S**. توقيعه مكتوب أيضاً داخل الـ ROM الناتجة (نص عادي عند `$B7:FD00` يظهر في أي محرر سداسي).
-اللعبة © Nintendo، والمشروع غير تابع لها ولا مصرَّح من جهتها. كود المشروع وبيانات الترجمة تحت [MIT](LICENSE). التفاصيل في [NOTICE.md](NOTICE.md).
+اللعبة © Nintendo، والمشروع غير تابع لها ولا مصرَّح من جهتها. **الترجمة العربية والرقعة والموقع** تحت ترخيص [CC BY-NC-SA 4.0](LICENSE-TRANSLATION.md): انسب العمل لـ Mr S، **ولا تستعمله تجارياً أو تبعه**، ومن يعدّله ينشره بالترخيص نفسه. **الكود** (الأدوات والاختبارات) تحت [MIT](LICENSE). التعريب مجاني ويبقى مجانياً. التفاصيل في [NOTICE.md](NOTICE.md).
 
 ---
 
@@ -133,4 +133,4 @@ See the commands in the Arabic section above (`extract`, `build-ar`, `smar/bps.p
 
 ### Credits and license
 Translation and tools by **Mr S**; the same mark is written as plain text inside the patched ROM (`$B7:FD00`, visible in any hex editor).
-Super Metroid © Nintendo; this project is not affiliated with or endorsed by Nintendo. Code and translation data: [MIT](LICENSE). See [NOTICE.md](NOTICE.md).
+Super Metroid © Nintendo; this project is not affiliated with or endorsed by Nintendo. **The Arabic translation, the patch and the website** are under [CC BY-NC-SA 4.0](LICENSE-TRANSLATION.md): credit Mr S, **no commercial use or selling**, and share adaptations under the same licence. **The code** (tools, tests) is under [MIT](LICENSE). The translation is free and stays free. See [NOTICE.md](NOTICE.md).

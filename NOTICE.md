@@ -9,7 +9,10 @@ Arabic translation, tools and fonts by **Mr S**.
 - The 16-pixel-tall Arabic menu glyphs are rasterized at build time from **DejaVu Sans** (shipped with matplotlib; Bitstream Vera /
   DejaVu licence, free to use and embed). The font file is not redistributed here; the patch only contains the resulting small bitmaps.
 - Tests use the **Mesen 2** emulator (GPL-3.0) through its Lua test runner; Mesen is not part of this repository.
-- Code and Arabic translation data are released under the MIT licence (see LICENSE). Copyright holder: Mr S.
+- **Licences.** The *source code* (smar/, tools/, tests/, smar_cli.py) is MIT (see LICENSE). The *Arabic translation* (data/translations_ar.json, the review files), the *BPS patch* and the *website* are
+  © 2026 Mr S under **CC BY-NC-SA 4.0** (see LICENSE-TRANSLATION.md): attribution, **non-commercial only**, share-alike. Selling the translation or a patched game, or putting it behind a paywall, is not allowed.
+  Versions published before this change (up to commit `0ac0e02`) were released under MIT and stay available under that licence; the new terms apply to everything published after it.
+  This notice is documentation, not legal advice.
 
 - The screenshots show the patched game for illustration (commentary/documentation use). Nintendo's rights in them remain Nintendo's.
 - Rights holders can ask for removal of anything in this repository by opening an Issue and it will be removed promptly.

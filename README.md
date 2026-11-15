@@ -6,6 +6,8 @@
 
 **صانع التعريب · Translation by: Mr S**
 
+**الموقع · Website:** https://salman-0x.github.io/super-metroid-arabic/
+
 > **نسخة تجريبية · Beta.** لم تُختبر بلعب كامل حتى النهاية بعد، وقد توجد نصوص بالإنجليزية أو أخطاء لم تظهر. نحتاج من يختمها ويبلّغ عبر [Issue](../../issues/new/choose).
 > **Beta.** Not yet tested by a full playthrough: untranslated text or mistakes may remain. If you finish the game, please [report problems](../../issues/new/choose).
 
